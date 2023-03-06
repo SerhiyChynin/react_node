@@ -62,7 +62,8 @@ function App() {
       .then(response => response.text())
       .then(response => {
           console.log(response);
-          if (response > 0) {
+          console.log(event.target.filename.value);
+          if (response !== '') {
             setT3(event.target.filename.value);
           }
           else {
@@ -119,7 +120,7 @@ function App() {
           <div><input type="text" name="filedata" /></div>
           <button type="sumbit">Push</button>
         </form>
-        <p>{(t3)? <a href={'http://test1.ua/files/'+t3}>Скачать</a> : ''}</p>
+        <p>{t3 === false ? '' : <a href={'http://localhost:3500/files/'+t3}>Скачать</a>}</p>
       </div>
       <hr/>
       <div>
